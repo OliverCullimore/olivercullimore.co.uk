@@ -134,6 +134,7 @@ module.exports = eleventyConfig => {
         }
     });
 
+	eleventyConfig.addPassthroughCopy('CNAME');
 	eleventyConfig.addPassthroughCopy('src/images/**');
 
     eleventyConfig.addWatchTarget('src');

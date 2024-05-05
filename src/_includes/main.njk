@@ -1,0 +1,117 @@
+---
+title: Default title
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    {# Favicons #}
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="/images/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="/images/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#000">
+
+    {# Metadata #}
+    {%- set pageTitle = ('' if title === 'Home' else title + ' | ') + metadata.title %}
+    {%- set pageDescription = page.description or metadata.description %}
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ pageDescription }}">
+    <meta property="og:image:url" content="/images/olivercullimore.svg">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:image:width" content="264"/>
+    <meta property="og:image:height" content="280"/>
+    <meta property="og:url" content="{{ metadata.url }}"/>
+    <meta property="og:site_name" content="{{ metadata.title }}"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{{ pageDescription }}"/>
+    <meta name="twitter:title" content="{{ pageTitle }}"/>
+    <meta name="copyright" content="{{ pageTitle }}">
+    <meta name="description" content="{{ pageDescription }}">
+    <meta name="author" content="{{ metadata.title }}">
+
+    <title>{{ pageTitle }}</title>
+
+    <link rel="canonical" href="{{ page.url or metadata.url }}"/>
+    <link rel="alternate" href="{{ metadata.feedUrl }}" type="application/atom+xml" title="{{ metadata.title }}">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ metadata.sitemapUrl }}">
+
+    {# Font #}
+    <link rel="preconnect" href="//fonts.gstatic.com">
+    <link href="//fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    {# CSS bundle - Docs: https://github.com/11ty/eleventy-plugin-bundle #}
+    {%- css %}{% include "src/css/normalize.css" %}{% endcss %}
+    {%- css %}{% include "src/css/main.css" %}{% endcss %}
+    <link rel="stylesheet" href="{% getBundleFileUrl "css" %}">
+  </head>
+  <body id="{{ pageId }}">
+
+    <header>
+      <a href="/" title="{{ metadata.title }}" class="logo">{% include "src/images/logo.svg" %}</a>
+      <nav>
+        <ul>
+          <li><a {% if page.url == "/posts/" %}class="active" aria-current="page" {% endif %}href="/posts/" title="Posts">Posts</a></li>
+          <li><a href="{{ metadata.feedUrl }}" title="{{ metadata.title }}'s RSS Feed" target="_blank">RSS</a></li>
+          <li id="theme-toggle"></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      {%- if pageId != "home" %}<h1>{{ title }}</h1>{% endif %}
+      {{ content | safe }}
+      {%- if pageId != "posts" and pageId != "post" and pageId != "tag" %}
+      <section class="recent-posts">
+        <h3>Recent posts</h3>
+        {% set posts = collections.post %}
+        {% include "postslist.njk" %}
+      </section>
+      {% endif %}
+    </main>
+
+    <footer>
+      <p><a href="mailto:hello@olivercullimore.co.uk">hello@olivercullimore.co.uk</a></p>
+      <ul class="socials">
+        <li><a href="https://linkedin.com/in/oliver-cullimore" target="_blank" rel="nofollow"><span class="iconify" data-icon="simple-icons:linkedin"></span></a></li>
+        <li><a href="https://github.com/OliverCullimore" target="_blank" rel="nofollow"><span class="iconify" data-icon="simple-icons:github"></span></a></li>
+      </ul>
+      <p class="copyright">Copyright &copy; Ollie Cullimore {% copyrightDate %} | Built with <a href="https://www.11ty.dev/" target="_blank" rel="nofollow">11ty</a></p>
+    </footer>
+
+    {# Icons #}
+    <script src="//code.iconify.design/3/3.1.0/iconify.min.js" type="application/javascript"></script>
+    {# JS bundle - Docs: https://github.com/11ty/eleventy-plugin-bundle #}
+    {%- js %}{% include "src/js/main.js" %}{% endjs %}
+    <script src="{% getBundleFileUrl "js" %}" type="application/javascript"></script>
+
+    {# Code Syntax Hightligting #}
+    {%- if pageId == "post" %}
+    <link href="//cdn.jsdelivr.net/npm/prismjs@1/themes/prism-okaidia.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/prism.js" type="application/javascript"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.js" type="application/javascript"></script>
+    {% endif -%}
+  </body>
+</html>

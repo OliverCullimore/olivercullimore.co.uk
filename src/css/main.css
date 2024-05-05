@@ -1,0 +1,314 @@
+:root {
+    color-scheme: only dark;
+    --bg-color: #1b1a19;
+    --bg-color-alt: #333;
+    --color: #fff;
+    --color-alt: #aaa;
+    --primary-color: #337ab7;
+    --primary-color-alt: #23527c;
+    --font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-family-alt: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+[data-theme="light"] {
+    color-scheme: only light;
+    --bg-color: #f1f1f1;
+    --bg-color-alt: #fff;
+    --color: #222;
+    --color-alt: #777;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--color);
+    font-family: var(--font-family);
+    font-size: 18px;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0 0 1rem 0;
+    font-weight: normal;
+    max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-alt);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+picture, img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
+a, a:visited {
+    color: var(--primary-color);
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+a:hover, a:focus {
+    text-decoration: none;
+    color: var(--primary-color-alt);
+}
+
+button, input {
+    background: none;
+    color: inherit;
+    box-sizing: border-box;
+    outline: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.text-center {
+    text-align: center;
+}
+
+header {
+    width: 100%;
+    position: relative;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+header .logo {
+    display: inline-block;
+}
+header svg {
+    max-width: 300px;
+    height: auto;
+}
+header svg #cullimore {
+    fill: var(--color);
+}
+nav {
+    position: relative;
+}
+nav ul {
+    padding: 0;
+    margin: 10px 0 0 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li:last-of-type {
+    margin-right: 0;
+}
+nav ul li a {
+    text-decoration: none;
+}
+#theme-toggle {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    cursor: pointer;
+    border-radius: 34px;
+    background-color: var(--bg-color-alt);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+#theme-toggle:hover, #theme-toggle:focus {
+    box-shadow: 0 0 3px 2px #337ab7;
+}
+#theme-toggle:after {
+    content: '';
+    position: absolute;
+    height: 26px;
+    width: 26px;
+    right: 4px;
+    bottom: 4px;
+    border-radius: 50%;
+    background: url('//api.iconify.design/mi/moon.svg?color=white') no-repeat center;
+    background-color: var(--bg-color);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+[data-theme="light"] #theme-toggle {
+    background-color: var(--bg-color-alt);
+}
+[data-theme="light"] #theme-toggle:after {
+    background-image: url('//api.iconify.design/mi/sun.svg');
+    -webkit-transform: translateX(-26px);
+    -ms-transform: translateX(-26px);
+    transform: translateX(-26px);
+}
+
+main {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    padding: 15px;
+    margin: 0 auto;
+}
+main > h1 {
+    width: 100%;
+    text-align: center;
+}
+
+section {
+    width: 100%;
+}
+
+pre {
+    padding: 12px 15px;
+    background: var(--bg-color-alt);
+}
+
+.recent-posts {
+    margin-top: 100px;
+}
+.recent-posts h3 {
+    font-size: 2em;
+    margin: 0 0 3rem 0;
+    text-align: center;
+}
+
+.post {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.post:last-of-type {
+    margin-bottom: 0;
+}
+.post .thumbnail, .post .details {
+    display: inline-block;
+}
+.post .title {
+    display: block;
+    color: var(--color);
+    font-family: var(--font-family-alt);
+    font-size: 1.3em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+.post-tags {
+    padding: 15px 0 0 0;
+}
+.post-tags:empty {
+    display: none;
+}
+.post-tags .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px 10px 0;
+    color: var(--color-alt);
+    background: var(--bg-color-alt);
+    border-radius: 200px;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+.post-tags .tag:hover {
+    color: var(--bg-color-alt);
+    background: var(--color-alt);
+}
+.post-tags .tag:last-of-type {
+    margin-right: 0;
+}
+.post-info {
+    padding: 5px 0 15px 0;
+    font-size: 0.9em;
+    color: var(--color-alt);
+}
+.post-info svg {
+    margin-right: 5px;
+}
+.post-info div {
+    display: inline-block;
+}
+.post-info .post-reading-time {
+    padding: 0 0 0 9px;
+    margin: 0 0 0 5px;
+    border-left: 1.5px solid var(--color-alt);
+}
+.post .summary {
+    display: block;
+    color: var(--color-alt);
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.pagination {
+    width: 100%;
+    text-align: center;
+}
+.pagination ol {
+    display: inline-block;
+    padding: 0;
+    list-style: none;
+}
+
+footer {
+    width: 100%;
+    position: relative;
+    padding: 105px 15px 0 15px;
+    text-align: center;
+}
+footer p {
+    font-size: 1.2em;
+}
+footer .copyright {
+    font-size: 0.9em;
+}
+.socials {
+    padding: 0;
+    font-size: 2.4em;
+    list-style: none;
+}
+.socials li {
+    display: inline-block;
+    padding: 0 5px;
+}
+
+#posts h1, #tag h1 {
+    margin-bottom: 60px;
+}
+#posts .post {
+    margin-bottom: 30px;
+}
+
+#post .post-tags, #post .post-info {
+    text-align: center;
+}
+#post .post-content h1, #post .post-content h2, #post .post-content h3, #post .post-content h4, #post .post-content h5, #post .post-content h6 {
+    margin-top: 60px;
+}
+
+/* not mobile */
+@media (min-width: 769px) {
+    .post .thumbnail {
+        width: 40%;
+    }
+    .post .details {
+        width: 60%;
+        padding-left: 25px;
+        vertical-align: top;
+    }
+    .post .details.no-thumbnail {
+        width: 100%;
+    }
+}
+
+/* mobile only */
+@media (max-width: 768px) {
+    .post .thumbnail {
+        margin-bottom: 5px;
+    }
+    .post .title {
+        display: none;
+    }
+    .post .post-tags {
+        padding-top: 5px;
+    }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "olivercullimore.co.uk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve",
+    "notion": "node notion"
+  },
+  "author": {
+    "name": "Ollie Cullimore",
+    "url": "https://olivercullimore.co.uk/"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "3.0.0-alpha.10",
+    "@11ty/eleventy-fetch": "^4.0.1",
+    "@11ty/eleventy-img": "^4.0.2",
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@notionhq/client": "^2.2.14",
+    "canvas": "^2.11.2",
+    "dotenv": "^16.3.1",
+    "eleventy-plugin-reading-time": "^0.0.1",
+    "he": "^1.2.0",
+    "luxon": "^3.4.4",
+    "notion-to-md": "^3.1.1",
+    "postcss": "^8.4.33",
+    "postcss-minify": "^1.1.0",
+    "sharp": "^0.33.3",
+    "striptags": "^3.2.0",
+    "terser": "^5.27.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/OliverCullimore/olivercullimore.co.uk.git"
+  },
+  "keywords": [],
+  "homepage": "https://olivercullimore.co.uk/",
+  "description": "The olivercullimore.co.uk website."
+}

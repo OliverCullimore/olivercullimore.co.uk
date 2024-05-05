@@ -1,0 +1,9 @@
+<div class="post-tags">
+    {%- for tag in tags %}
+        {% if tag != "post" %}<a href="/tags/{{ tag | slugify }}" class="tag">{{ tag }}</a>{% endif %}
+    {% endfor -%}
+</div>
+<div class="post-info">
+    <div class="post-date"><span class="iconify-inline" data-icon="mdi:calendar-month"></span>{{ date | niceDate }}</div>
+    <div class="post-reading-time"><span class="iconify-inline" data-icon="mdi:stopwatch-outline"></span>{{ content | readingTime }} read</div>
+</div>

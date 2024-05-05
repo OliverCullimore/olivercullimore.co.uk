@@ -1,0 +1,23 @@
+---
+pagination:
+  data: collections.post
+  size: 10
+  alias: posts
+title: Posts
+layout: main
+pageId: posts
+---
+
+{% include "postslist.njk" %}
+
+{% if pagination.href.previous or pagination.href.next %}
+<nav aria-labelledby="pagination" class="pagination">
+  {% if pagination.href.previous %}<a href=" {{ pagination.href.previous }}">Previous</a>{% endif %}
+  <ol>
+    {%- for pageEntry in pagination.pages %}
+      <li><a href="{{ pagination.hrefs[ loop.index0 ] }}"{% if page.url == pagination.hrefs[ loop.index0 ] %} aria-current="page"{% endif %}>{{ loop.index }}</a></li>
+    {%- endfor %}
+  </ol>
+  {% if pagination.href.next %}<a href=" {{ pagination.href.next }}">Next</a>{% endif %}
+</nav>
+{% endif %}

@@ -1,0 +1,13 @@
+{% for post in posts | reverse %}
+    {% set date = post.date %}
+    {% set tags = post.data.tags %}
+    {% set content = post %}
+    <div class="post">
+        {%- if post.data.thumbnail %}<a href="{{ post.url }}" class="thumbnail"><img src="{{ post.data.thumbnail }}" alt="{{ post.data.title }}"/></a>{% endif -%}
+        <div class="details{%- if not post.data.thumbnail %} no-thumbnail{% endif -%}">
+            <a href="{{ post.url }}" class="title">{{ post.data.title }}</a>
+            {% include "postinfo.njk" %}
+            <a href="{{ post.url }}" class="summary"><p>{% excerpt post %}</p></a>
+        </div>
+    </div>
+{% endfor %}

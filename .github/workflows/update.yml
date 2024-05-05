@@ -23,8 +23,10 @@ jobs:
       - name: Install dependencies & run notion
         run: |
           touch .env
-          echo NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} >> .env
+#          echo NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} >> .env
+          echo NOTION_TOKEN=${{ env.NOTION_DATABASE_ID }} >> .env
           echo NOTION_DATABASE_ID=${{ env.NOTION_DATABASE_ID }} >> .env
+          echo 'cat .env'
           npm ci
           npm run notion
 

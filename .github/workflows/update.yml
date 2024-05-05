@@ -22,13 +22,8 @@ jobs:
 
       - name: Install dependencies & run notion
         run: |
-          touch .env
-#          echo NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} >> .env
-          echo NOTION_TOKEN=${{ env.NOTION_DATABASE_ID }} >> .env
-          echo NOTION_DATABASE_ID=${{ env.NOTION_DATABASE_ID }} >> .env
-          echo 'cat .env'
           npm ci
-          npm run notion
+          NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} NOTION_DATABASE_ID=${{ env.NOTION_DATABASE_ID }} npm run notion
 
       - name: Commit & push changes
         run: |

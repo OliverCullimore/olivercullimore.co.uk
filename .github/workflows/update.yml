@@ -23,7 +23,7 @@ jobs:
       - name: Install dependencies & run notion
         run: |
           npm ci
-          NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} NOTION_DATABASE_ID=${{ env.NOTION_DATABASE_ID }} npm run notion
+          NOTION_TOKEN=${{ secrets.NOTION_TOKEN }} NOTION_DATABASE_ID=${{ vars.NOTION_DATABASE_ID }} npm run notion
 
       - name: Commit & push changes
         run: |

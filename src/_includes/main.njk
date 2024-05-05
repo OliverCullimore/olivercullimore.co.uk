@@ -32,11 +32,11 @@ title: Default title
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ pageTitle }}">
     <meta property="og:description" content="{{ pageDescription }}">
-    <meta property="og:image:url" content="/images/olivercullimore.svg">
-    <meta property="og:image:type" content="image/svg+xml">
-    <meta property="og:image:width" content="264"/>
-    <meta property="og:image:height" content="280"/>
-    <meta property="og:url" content="{{ metadata.url }}"/>
+    <meta property="og:image:url" content="{{ thumbnail or '/images/olliecullimore.svg' }}">
+    <meta property="og:image:type" content="image/{{ thumbnail | extension or 'svg+xml' }}">
+    <meta property="og:image:width" content="{{ '600' if thumbnail else '264' }}"/>
+    <meta property="og:image:height" content="{{ '300' if thumbnail else '280' }}"/>
+    <meta property="og:url" content="{{ page.url or metadata.url }}"/>
     <meta property="og:site_name" content="{{ metadata.title }}"/>
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:description" content="{{ pageDescription }}"/>
@@ -87,8 +87,8 @@ title: Default title
     <footer>
       <p><a href="mailto:hello@olivercullimore.co.uk">hello@olivercullimore.co.uk</a></p>
       <ul class="socials">
-        <li><a href="https://linkedin.com/in/oliver-cullimore" target="_blank" rel="nofollow"><span class="iconify" data-icon="simple-icons:linkedin"></span></a></li>
-        <li><a href="https://github.com/OliverCullimore" target="_blank" rel="nofollow"><span class="iconify" data-icon="simple-icons:github"></span></a></li>
+        <li><a href="https://linkedin.com/in/oliver-cullimore" target="_blank" rel="nofollow" title="Linkedin"><span class="iconify" data-icon="simple-icons:linkedin"></span></a></li>
+        <li><a href="https://github.com/OliverCullimore" target="_blank" rel="nofollow" title="GitHub"><span class="iconify" data-icon="simple-icons:github"></span></a></li>
       </ul>
       <p class="copyright">Copyright &copy; Ollie Cullimore {% copyrightDate %} | Built with <a href="https://www.11ty.dev/" target="_blank" rel="nofollow">11ty</a></p>
     </footer>

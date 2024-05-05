@@ -119,19 +119,11 @@ module.exports = eleventyConfig => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
     });
 
-    eleventyConfig.addFilter('cssmin', function(code) {
-        return new CleanCSS({}).minify(code).styles;
-    });
-
-    eleventyConfig.addNunjucksAsyncFilter('jsmin', async function (code, callback) {
-        try {
-            const minified = await minify(code);
-            callback(null, minified.code);
-        } catch (err) {
-            console.error('Terser error: ', err);
-            // Fail gracefully.
-            callback(null, code);
+    eleventyConfig.addFilter('extension', (file) => {
+        if (file) {
+            return path.extname(file).replace('.', '');
         }
+        return undefined;
     });
 
 	eleventyConfig.addPassthroughCopy('CNAME');

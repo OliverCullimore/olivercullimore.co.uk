@@ -27,7 +27,7 @@ title: Default title
 
     {# Metadata #}
     {%- set pageTitle = ('' if title === 'Home' else title + ' | ') + metadata.title %}
-    {%- set pageDescription = page.description or metadata.description %}
+    {%- set pageDescription = description or metadata.description %}
     <meta property="og:locale" content="en_GB">
     <meta property="og:type" content="website">
     <meta property="og:title" content="{{ pageTitle }}">

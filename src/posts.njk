@@ -8,6 +8,8 @@ layout: main
 pageId: posts
 ---
 
+{% include "tagbar.njk" %}
+
 {% include "postslist.njk" %}
 
 {% if pagination.href.previous or pagination.href.next %}

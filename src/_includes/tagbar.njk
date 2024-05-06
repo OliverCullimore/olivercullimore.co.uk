@@ -1,0 +1,6 @@
+<div class="tag-bar post-tags">
+    <a href="/posts/" class="tag{% if page.url == "/posts/" %} active" aria-current="page{% endif %}">All</a>
+    {% for bTag in collections.tags %}
+        {% if bTag != "post" %}<a href="/tags/{{ bTag | slugify }}/" class="tag{% if page.url == "/tags/" + (bTag | slugify) + "/" %} active" aria-current="page{% endif %}">{{ bTag }}</a>{% endif %}
+    {% endfor %}
+</div>

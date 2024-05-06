@@ -1,6 +1,6 @@
 <div class="post-tags">
     {%- for tag in tags %}
-        {% if tag != "post" %}<a href="/tags/{{ tag | slugify }}" class="tag">{{ tag }}</a>{% endif %}
+        {% if tag != "post" %}<a href="/tags/{{ tag | slugify }}/" class="tag">{{ tag }}</a>{% endif %}
     {% endfor -%}
 </div>
 <div class="post-info">

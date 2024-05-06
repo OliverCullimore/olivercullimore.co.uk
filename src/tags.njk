@@ -5,10 +5,12 @@ pagination:
   alias: tag
 permalink: "/tags/{{ tag | slugify }}/index.html"
 layout: main
+pageId: tag
 eleventyComputed:
   title: "Posts - {{ tag }}"
-  pageId: tag
 ---
+
+{% include "tagbar.njk" %}
 
 {% set posts = collections.post | filterByTag(tag) %}
 {% include "postslist.njk" %}

@@ -209,7 +209,7 @@ pre {
     font-size: 0.9em;
     text-decoration: none;
 }
-.post-tags .tag:hover {
+.post-tags .tag:hover, .post-tags .tag:focus, .post-tags .tag.active {
     color: var(--bg-color-alt);
     background: var(--color-alt);
 }
@@ -237,6 +237,11 @@ pre {
     color: var(--color-alt);
     font-size: 0.9em;
     text-decoration: none;
+}
+
+.tag-bar {
+    padding: 0 0 30px 0;
+    text-align: center;
 }
 
 .pagination {
@@ -276,7 +281,7 @@ footer .copyright {
 }
 
 #posts h1, #tag h1 {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 #posts .post {
     margin-bottom: 30px;

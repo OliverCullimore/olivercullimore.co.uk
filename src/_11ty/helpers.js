@@ -7,6 +7,8 @@ const {createCanvas, loadImage} = require("canvas");
 const {writeFileSync} = require("fs");
 
 function extractExcerpt(content) {
+    // Remove HTML headings
+    content = String(content).replace(/^(\<h{1,6})(.*?)$/gim, '');
     // Strip HTML tags and decode HTML entities.
     content = he.decode(striptags(content));
     // Remove Markdown headings

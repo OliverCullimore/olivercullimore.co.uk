@@ -20,5 +20,5 @@ I settled on using JavaScript to detect the browser’s default settings, toggle
 The code for all this can be found in the CodePen below:
 
 
-[embed](https://codepen.io/olivercullimore/pen/xxNEXRa)
+<figure><iframe src="https://codepen.io/olivercullimore/embed/xxNEXRa?default-tab=html%2Cresult" width="1200" height="600"></iframe><figcaption></figcaption></figure>
 

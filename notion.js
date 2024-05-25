@@ -39,6 +39,10 @@ n2m.setCustomTransformer('image', async block => {
 ${code}
 \`\`\``;
 });*/
+n2m.setCustomTransformer("embed", async (block) => {
+    if (!block.embed?.url) return false;
+    return `<figure><iframe src="${block.embed?.url}" width="1200" height="600"></iframe>${block.embed.caption ? `<figcaption>${await n2m.blockToMarkdown(block.embed?.caption)}</figcaption>` : ``}</figure>`;
+});
 
 async function getPostsFromNotion() {
     try {

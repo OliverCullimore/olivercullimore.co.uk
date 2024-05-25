@@ -31,5 +31,4 @@ jobs:
           git config --global user.email "action@github.com"
           git add src/posts
           git add src/images
-          git commit -m "Update posts from Notion"
-          git push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update posts from Notion" && git push)
